@@ -16,10 +16,7 @@ generateBtn.addEventListener("click", writePassword);
 //create an object to storage input data
 var passwordLength = 0;
 var passwordType = [];
-// var lowercase = "";
-// var uppercase = "";
-// var numeric = "";
-// var specialchar = "";
+
 
 //function to get the length of the password
 
@@ -50,7 +47,7 @@ var lengthCheck = function () {
   }
 
   console.log(passwordLength)
-  console.log(typeof passwordLength)
+
 
 }
 
@@ -59,18 +56,25 @@ var lengthCheck = function () {
 var typeCheck = function () {
 
   var ucCheck = window.confirm("Would you like to have uppercase letters in your password?");
-  passwordType[0] = ucCheck;
+  if (ucCheck) {
+
+    passwordType.push("QWERTYUIOPASDFGHJKLZXCVBNM");
+  }
 
   var lcCheck = window.confirm("Would you like to have lowercase letters in your password?");
-  passwordType[1] = lcCheck;
-
+  if (lcCheck) {
+    passwordType.push("qwertyuiopasdfghjklzxcvbnm");
+  }
 
   var numCheck = window.confirm("Would you like to have numbers in your password?");
-  passwordType[2] = numCheck;
+  if (numCheck) {
+    passwordType.push("1234567890");
+  }
 
   var scCheck = window.confirm("Would you like to have special characters in your password?");
-  passwordType[3] = scCheck;
-
+  if (scCheck) {
+    passwordType.push("!@#$%&*?><|}{+_-=`~;:");
+  }
   console.log(passwordType[0]);
   console.log(passwordType[1]);
   console.log(passwordType[2]);
@@ -91,17 +95,15 @@ var genPass = function () {
 
   // random array value
   var value = Math.floor(Math.random() * Math.floor(passwordType.length));
-  console.log(value);
-  console.log(typeof value);
-
-
+  
 }
 
 
 
-lengthCheck();
-typeCheck();
-genPass();
+
+  lengthCheck();
+  typeCheck();
+//genPass();
 
 
 
